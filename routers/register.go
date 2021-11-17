@@ -41,7 +41,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error registering user: "+err.Error(), 400)
 		return
 	}
-	if !status == false {
+	if status == false {
 		http.Error(w, "Error registering user", 400)
 		return
 	}
