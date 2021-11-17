@@ -30,7 +30,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 
 	_, foundUser, _ := bd.CheckUserExists(t.Email)
 
-	if !foundUser {
+	if foundUser == true {
 		http.Error(w, "User exists, please try again", 400)
 		return
 	}
@@ -41,7 +41,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error registering user: "+err.Error(), 400)
 		return
 	}
-	if !status {
+	if !status == false {
 		http.Error(w, "Error registering user", 400)
 		return
 	}
